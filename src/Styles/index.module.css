@@ -1,0 +1,72 @@
+.container {
+  display: grid;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  height: 700px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section {
+  position: relative;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  text-align: center;
+  background-image: url('../assets/img/form-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.section span {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+}
+
+.section span img {
+  width: 120px;
+}
+
+.section h1 {
+  margin-bottom: 16px;
+  font-size: 3rem;
+}
+
+.section p {
+  font-size: 1.4rem;
+  margin-bottom: 80px;
+}
+
+.section button {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  padding: 24px 48px;
+  font-size: 1.4rem;
+  background-color: transparent;
+  transition: .3s;
+}
+
+.section button:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1px 4px rgba(78, 44, 104, 0.1);
+  border: 2px solid #a170c7;
+  background-color: #a170c7;
+}

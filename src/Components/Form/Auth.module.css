@@ -1,0 +1,23 @@
+.container {
+  padding: 48px;
+}
+
+.container h2 {
+  margin-bottom: 32px;
+}
+
+.btn {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  padding: 16px 48px;
+  font-size: 1rem;
+  background-color: #a170c7;
+  transition: .3s;
+}
+
+.btn:hover {
+  background-color: #8859ac;
+}
