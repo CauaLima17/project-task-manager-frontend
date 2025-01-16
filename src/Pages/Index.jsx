@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../Styles/index.module.css';
 import Login from '../Components/Form/Login.jsx';
 import Register from '../Components/Form/Register.jsx';
 import logo from '../assets/icons/Logo.svg'
+import useGet from '../Hooks/useGet.js';
 
 const Index = () => {
   const [form, setForm] = useState({
@@ -11,8 +12,8 @@ const Index = () => {
     password: '',
     confirmedPassword: ''
   });
-
   const [login, setLogin] = useState(true);
+  const {data, loading, error, fetchData} = useGet();
 
   function handleFormChange({ target }) {
     setForm({...form, [target.id]: target.value});
@@ -20,7 +21,14 @@ const Index = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    fetchData('http://localhost:5000/tarefas')
   }
+
+  useEffect(() => {
+    if (data) {
+      console.log(data)
+    }
+  }, [data])
 
   return (
     <div className={styles.container}>
