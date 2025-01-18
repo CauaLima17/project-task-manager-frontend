@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../Styles/index.module.css';
 import Login from '../Components/AuthForm/Login.jsx';
 import Register from '../Components/AuthForm/Register.jsx';
 import logo from '../assets/icons/Logo.svg'
 
 const AuthPage = () => {
-  const [form, setForm] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmedPassword: ''
-  });
   const [login, setLogin] = useState(true);
+  const navigate = useNavigate();
 
-  function handleFormChange({ target }) {
-    setForm({...form, [target.id]: target.value});
-  };
+  useEffect(() => {
+    const token = localStorage.getItem('userToken');
+
+    if (token) {
+      navigate('/home');
+    }
+  }, [navigate]);
 
   return (
     <main className={styles.container}>
@@ -29,13 +29,13 @@ const AuthPage = () => {
 
               <button onClick={() => setLogin(!login)}>{login ? 'Criar Conta' : 'Fazer Login'} </button>
         </section>
-        <div className={styles.form} onSubmit={(e) => e.preventDefault()}>
-              {
-                login ? 
-                <Login form={form} setForm={handleFormChange} />
-                :
-                <Register form={form} setForm={handleFormChange} />
-              }
+        <div className={styles.form} >
+          {
+            login ? 
+            <Login />
+            :
+            <Register />
+          }
         </div>
       </div>
     </main>

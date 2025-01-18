@@ -38,7 +38,7 @@ const Login = () => {
       } else {
         setFetchStatus(data.message)
         localStorage.setItem('userToken', data.token);
-        window.location.href = 'http://localhost:5173/home'
+        window.location.href = '/home'
       }
     }
   }, [data, error])
