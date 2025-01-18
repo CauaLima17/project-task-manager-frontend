@@ -21,3 +21,15 @@
 .btn:hover {
   background-color: #8859ac;
 }
+
+.pError {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 24px;
+}
+
+.pSuccess {
+  font-size: 1.2rem;
+  color: green;
+  margin-top: 24px;
+}

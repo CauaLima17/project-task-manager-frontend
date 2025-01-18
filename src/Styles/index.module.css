@@ -1,11 +1,10 @@
 .container {
-  display: grid;
+  display: flex;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  height: 100dvh;
 }
 
-.grid {
+.gridContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-width: 1200px;
@@ -15,6 +14,14 @@
   height: 700px;
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  padding: 48px;
+}
+
+.form h2 {
+  margin-bottom: 32px;
 }
 
 .section {

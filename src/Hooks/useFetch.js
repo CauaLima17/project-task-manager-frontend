@@ -6,7 +6,7 @@ const useFetch = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchData = async (url, method = 'GET', body = null, headers = {}) => {
+  const fetchData = async ({ url, method = 'GET', body = null, headers = {} }) => {
     setLoading(true);
     setError(null);
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import Index from './Pages/Index.jsx';
+import AuthPage from './Pages/AuthPage.jsx';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Index />}/>
+        <Route path='/' element={<AuthPage />}/>
       </Routes>
     </BrowserRouter>
   )

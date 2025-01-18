@@ -19,3 +19,9 @@
   color: #535353;
 }
 
+.pError {
+  font-size: 1.2rem;
+  color: red;
+  margin-bottom: 24px;
+}
+
