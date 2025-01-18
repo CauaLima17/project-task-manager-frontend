@@ -1,16 +1,26 @@
 import { useEffect } from 'react';
 import { useState } from 'react'
 
-const useGet = () => {
+const useFetch = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchData = async (url) => {
+  const fetchData = async (url, method = 'GET', body = null, headers = {}) => {
     setLoading(true);
     setError(null);
+
+    const fetchOptions = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...headers
+      },
+      body: body ? JSON.stringify(body) : null
+    }
+
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, fetchOptions);
       const data = await response.json();
       setData(data);
     } catch (err) {
@@ -23,4 +33,4 @@ const useGet = () => {
   return ({data, loading, error, fetchData});
 }
 
-export default useGet
+export default useFetch

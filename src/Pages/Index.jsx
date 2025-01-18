@@ -3,7 +3,7 @@ import styles from '../Styles/index.module.css';
 import Login from '../Components/Form/Login.jsx';
 import Register from '../Components/Form/Register.jsx';
 import logo from '../assets/icons/Logo.svg'
-import useGet from '../Hooks/useGet.js';
+import useFetch from '../Hooks/useFetch.js';
 
 const Index = () => {
   const [form, setForm] = useState({
@@ -13,7 +13,7 @@ const Index = () => {
     confirmedPassword: ''
   });
   const [login, setLogin] = useState(true);
-  const {data, loading, error, fetchData} = useGet();
+  const {data, loading, error, fetchData} = useFetch();
 
   function handleFormChange({ target }) {
     setForm({...form, [target.id]: target.value});
@@ -21,13 +21,11 @@ const Index = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetchData('http://localhost:5000/tarefas')
-  }
+    fetchData('http://localhost:5000/users', 'POST', form);
+  };
 
   useEffect(() => {
-    if (data) {
-      console.log(data)
-    }
+    console.log(data)
   }, [data])
 
   return (
