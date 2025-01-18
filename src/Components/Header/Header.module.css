@@ -10,4 +10,51 @@
 .header h2 {
   font-size: 2.4rem;
   text-transform: uppercase;
+  color: #A170C7;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  background-color: #e6e6e6;
+}
+
+.details div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 16px;
+  width: 50px;
+  height: 50px;
+  background-color: #A170C7;
+  border-radius: 24px;
+}
+
+.details div:last-child h3 {
+  font-size: 1.2rem;
+}
+
+.logout {
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: rgb(221, 159, 159);
+  border: none;
+  transition: .3s;
+}
+
+.logout:hover {
+  background-color: rgb(148, 1, 1);
 }
