@@ -11,7 +11,7 @@
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
-  height: 700px;
+  height: max-content;
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -39,14 +39,14 @@
   border-radius: 12px 0 0 12px;
 }
 
-.section span {
+.logo {
   position: absolute;
   left: 24px;
   top: 24px;
 }
 
-.section span img {
-  width: 120px;
+.logo span {
+  color: #a170c7;
 }
 
 .section h1 {
