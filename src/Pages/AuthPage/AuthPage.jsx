@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../Styles/AuthPage.module.css';
-import Login from '../Components/AuthForm/Login.jsx';
-import Register from '../Components/AuthForm/Register.jsx';
+import styles from './AuthPage.module.css';
+import Login from '../../Components/AuthForm/Login.jsx';
+import Register from '../../Components/AuthForm/Register.jsx';
 
 const AuthPage = () => {
   const [login, setLogin] = useState(true);

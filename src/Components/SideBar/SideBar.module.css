@@ -1,0 +1,54 @@
+.aside {
+  height: 100dvh;
+  width: max-content;
+  padding: 24px 48px;
+  background-color: #000;
+  color: #fff;
+}
+
+.aside button {
+  font-size: 1.4rem;
+}
+
+.logo {
+  font-size: 2.4rem;
+  margin-bottom: 100px;
+}
+
+.logo span {
+  color: #A170C7;
+}
+
+.btn_project {
+  border: none;
+  border-radius: 24px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 12px 24px;
+  margin-bottom: 80px;
+  transition: .3s;
+}
+
+.btn_project:hover {
+  background-color: #A170C7;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menu button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #fff;
+  transition: .3s;
+}
+
+.menu button:hover {
+  transform: translateX(16px);
+  color: #A170C7;
+}
