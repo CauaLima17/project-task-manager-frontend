@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
-import Loader from '../Loader/Loader.jsx';
-import useFetch from '../../Hooks/useFetch';
-import styles from './Card.module.css';
+import React from 'react';
+import styles from './Card.module.css'
 
 const Card = ({
+  onwer,
   title,
-  url
+  description,
+  status,
+  priority,
+  createdAt
 }) => {
-  const { data, error, loading, fetchData } = useFetch()
-
-  useEffect(() => {
-    fetchData({ url: url })
-  }, [fetchData, url])
-  
   return (
-    <div className={styles.card}>
-      <h3>{title}</h3>
-      {loading && <Loader />}
-      {error ? <p>Erro ao carregar</p> : data && <p>{data.length}</p>}
+    <div className={styles.container}>
+      <header>
+        <h3>{title}</h3>
+        {status && <p>{status}</p>}
+      </header>
+      <div className={styles.content}>
+        <p><strong>Responsável:</strong> {onwer}</p>
+        {description && <p><strong>Descrição:</strong> {description}</p>}
+        {priority && <p><strong>Prioridade:</strong> {priority}</p>}
+        <p><strong>Data de criação:</strong> {createdAt}</p>
+      </div>
     </div>
   )
 }

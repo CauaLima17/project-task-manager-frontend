@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './Dashboard.module.css';
-import Card from '../Card/Card';
-import useToken from '../../Hooks/useToken';
+import Widget from '../../Widget/Widget.jsx';
+import useToken from '../../../Hooks/useToken.js';
 
 const Dashboard = () => {
   const { token, getToken } = useToken('userToken')
@@ -13,19 +13,19 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       {token &&
-        <Card 
+        <Widget 
           title='Total de Projetos'
           url={`http://localhost:5000/projetos/${token.user_id}`}
         /> 
       }
       {token &&
-        <Card 
+        <Widget 
           title='Total de Tarefas'
-          url={`http://localhost:5000/tarefas`}
+          url={`http://localhost:5000/tarefas/user/${token.user_id}`}
         />
       }
       {token &&
-        <Card 
+        <Widget 
           title='Total de Colaborações'
           url={`http://localhost:5000/tarefas`}
         />

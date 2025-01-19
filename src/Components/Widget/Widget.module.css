@@ -1,0 +1,16 @@
+.card {
+  position: relative;
+  flex: 1 1 600px;
+  border-radius: 24px;
+  padding: 24px 28px;
+  background-color: #e6e6e6;
+}
+
+.card h3 {
+  font-size: 1.8rem;
+}
+
+.card p {
+  color: #A170C7;
+  font-size: 3rem;
+}
