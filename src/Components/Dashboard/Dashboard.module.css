@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 48px;
+}
+
+.container > div:nth-child(odd) {
+  color: #fff;
+  background-color: #000;
+}

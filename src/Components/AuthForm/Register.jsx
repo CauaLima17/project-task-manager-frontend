@@ -8,6 +8,7 @@ import useForm from '../../Hooks/useForm.js';
 const Register = () => {
   const { data, error, loading, fetchData } = useFetch();
   const [fetchStatus, setFetchStatus] = useState(null);
+  const [passwordMatch, setPasswordMatch] = useState(true);
   const username = useForm('username');
   const email = useForm('email');
   const password = useForm('password');
@@ -25,7 +26,7 @@ const Register = () => {
       }
     }
     if (password.value !== confirmPassword.value) {
-      setFetchStatus('As senhas precisam ser iguais.')
+      setPasswordMatch(false)
     } else if (username.validate() && email.validate() && password.validate() && confirmPassword.validate()) {
       fetchData(options)
     }
@@ -57,6 +58,7 @@ const Register = () => {
       <button className={styles.btn}>Cadastrar</button>
 
       {loading && <Loader />}
+      {!passwordMatch && <p className={!passwordMatch ? styles.pError : styles.pSuccess}>As senhas precisam ser iguais.</p>}
       {fetchStatus && <p className={data.error || error ? styles.pError : styles.pSuccess}>{fetchStatus}</p>}
     </form>
   )

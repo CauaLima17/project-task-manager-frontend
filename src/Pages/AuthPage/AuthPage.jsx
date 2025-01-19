@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import styles from './AuthPage.module.css';
 import Login from '../../Components/AuthForm/Login.jsx';
 import Register from '../../Components/AuthForm/Register.jsx';
+import useToken from '../../Hooks/useToken.js';
 
 const AuthPage = () => {
   const [login, setLogin] = useState(true);
+  const { getToken } = useToken();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('userToken');
+    const decodedToken = getToken('userToken');
 
-    if (token) {
+    if (decodedToken) {
       navigate('/home');
     }
   }, [navigate]);

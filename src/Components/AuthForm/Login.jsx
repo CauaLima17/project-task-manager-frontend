@@ -4,10 +4,14 @@ import Loader from '../Loader/Loader.jsx';
 import styles from './Auth.module.css';
 import useFetch from '../../Hooks/useFetch.js';
 import useForm from '../../Hooks/useForm.js'
+import useToken from '../../Hooks/useToken.js';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { data, error, loading, fetchData } = useFetch();
   const [fetchStatus, setFetchStatus] = useState(null);
+  const { setToken } = useToken();
+  const navigate = useNavigate()
   const email = useForm('email');
   const password = useForm('password');
 
@@ -34,11 +38,11 @@ const Login = () => {
   
     if (data) {
       if (data.error) {
-        setFetchStatus(data.error)
+        setFetchStatus(data.error);
       } else {
-        setFetchStatus(data.message)
-        localStorage.setItem('userToken', data.token);
-        window.location.href = '/home'
+        setFetchStatus(data.message);
+        setToken('userToken', data.token);
+        navigate('/home');
       }
     }
   }, [data, error])

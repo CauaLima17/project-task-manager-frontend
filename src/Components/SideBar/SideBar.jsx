@@ -3,7 +3,7 @@ import styles from './SideBar.module.css'
 import { HeaderContext } from '../../Contexts/HeaderContext.jsx'
 
 const SideBar = () => {
-  const { content, setContent } = useContext(HeaderContext);
+  const { setContent } = useContext(HeaderContext);
 
   return (
     <aside className={styles.aside}>

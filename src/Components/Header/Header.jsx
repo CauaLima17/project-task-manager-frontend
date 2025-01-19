@@ -3,24 +3,22 @@ import drop from '../../assets/icons/Drop.svg'
 import { jwtDecode } from "jwt-decode";
 import { HeaderContext } from '../../Contexts/HeaderContext.jsx';
 import styles from './Header.module.css';
+import useToken from '../../Hooks/useToken.js';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { content } = useContext(HeaderContext);
-  const [userData, setUserData] = useState();
-  const [dropDown, setDropDown] = useState(false);
+  const { token, getToken, removeToken } = useToken();
+  const navigate = useNavigate()
 
   function handleLogout() {
-    localStorage.removeItem('userToken');
-    window.location.href = '/';
+    removeToken('userToken');
+    navigate('/');
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('userToken');
-    if (token) {
-      const decodedToken = jwtDecode(token);
-      setUserData(decodedToken);
-    }
-  }, []);
+    getToken('userToken')
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -28,11 +26,11 @@ const Header = () => {
 
       <div className={styles.account}>
         <div className={styles.details}>
-          <div>{userData && userData.username[0].toUpperCase()}</div>
+          <div>{token && token.username[0].toUpperCase()}</div>
 
           <div>
-              <h3>{userData ? userData.username : 'Carregando...'}</h3>
-              <p>{userData ? userData.user_email : '...'}</p>
+              <h3>{token ? token.username : 'Carregando...'}</h3>
+              <p>{token ? token.user_email : '...'}</p>
           </div>
         </div>
 
