@@ -26,7 +26,11 @@ const Tasks = () => {
     }
 
     if (data) {
-      data.error ? setFetchStatus(data.error) : null
+      if (data.error) {
+        setFetchStatus(data.error)
+      } else if (data.length === 0) {
+        setFetchStatus('Não há tarefas registradas na sua conta.')
+      }
     }
   }, [data, error])
 
@@ -35,15 +39,16 @@ const Tasks = () => {
       {loading && <Loader />}
       {fetchStatus && <h1>{fetchStatus}</h1>}
       {data && data.map((task) => (
-        <Card key={task._id}
-        onwer={token.username}
-        title={task._titulo}
-        status={task._status}
-        priority={task._prioridade}
-        createdAt='12/01/2025'
-        description={task._descricao}
-      />
-      ))};
+          <Card key={task._id}
+          onwer={token.username}
+          title={task._titulo}
+          status={task._status}
+          priority={task._prioridade}
+          createdAt='12/01/2025'
+          description={task._descricao}
+        />)) 
+      }
+      
     </div>
   )
 }
