@@ -1,7 +1,9 @@
 .header {
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid #e6e6e6;
   justify-content: space-between;
+  gap: 48px;
   align-items: center;
   padding: 24px 48px;
   align-self: start;
@@ -57,4 +59,10 @@
 
 .logout:hover {
   background-color: rgb(148, 1, 1);
+}
+
+@media(width < 1120px) {
+  .header {
+    justify-content: center;
+  }
 }
