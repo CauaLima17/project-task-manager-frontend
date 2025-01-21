@@ -1,9 +1,30 @@
 .aside {
+  position: relative;
   height: 100dvh;
-  width: max-content;
+  width: 460px;
   padding: 24px 48px;
   background-color: #000;
   color: #fff;
+  z-index: 2;
+  transition: .3s;
+}
+
+.hideAnimation {
+  position: fixed;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.hideBTN {
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: 24px;
+  right: -24px;
+  background-color: #A170C7;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 24px;
 }
 
 .aside button {
@@ -51,4 +72,10 @@
 .menu button:hover {
   transform: translateX(16px);
   color: #A170C7;
+}
+
+@media(width < 940px) {
+  .aside {
+    position: fixed;
+  }
 }

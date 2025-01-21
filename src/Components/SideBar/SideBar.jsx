@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './SideBar.module.css'
 import { HeaderContext } from '../../Contexts/HeaderContext.jsx'
 
 const SideBar = () => {
-  const { setContent } = useContext(HeaderContext);
+  const { content, setContent } = useContext(HeaderContext);
+  const [hide, setHide] = useState(false)
+
+  useEffect(() => {
+    setHide(true)
+  }, [content])
 
   return (
-    <aside className={styles.aside}>
+    <aside className={`${styles.aside} ${hide ? styles.hideAnimation : ''}`}>
       <h1 className={styles.logo}>TASK<span>FLOW</span></h1>
 
       <nav aria-label='Navegação Primária'>
@@ -19,6 +24,8 @@ const SideBar = () => {
           <li><button onClick={() => setContent('colaboradores')}>COLABORADORES</button></li>
         </ul>
       </nav>
+
+      <button className={styles.hideBTN} onClick={() => setHide(!hide)}>{hide ? '>>>' : '<<<'}</button>
     </aside>
   )
 }
